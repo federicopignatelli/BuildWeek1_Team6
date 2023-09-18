@@ -1,1 +1,17 @@
-/* logo backgound e font */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap");
+body {
+  background-image: url(asset/img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.logo {
+  width: 15em;
+  margin-top: 5em;
+}
+
+.container {
+  margin-left: 10em;
+  margin-right: 10em;
+}
