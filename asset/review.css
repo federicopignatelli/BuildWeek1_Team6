@@ -1,0 +1,54 @@
+h1{
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+font-family: 'Outfit', sans-serif; 
+font-size: 60px;
+margin-bottom: 20px;
+}
+h3{
+    color: white;
+    text-align: center;
+    margin-top:20px;
+    font-family: 'Inter', sans-serif; 
+    font-size: 16px;
+}
+p{
+    color: white;
+    text-align: center;
+    font-family: 'Inter', sans-serif; 
+    font-size: 16px;
+}
+
+input{
+    background-color: #0C113B;
+    border: 0px;
+    margin-left: 30px;
+    margin-top: 40px;
+}
+
+.space_for_stars{
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+hr{
+    border: 1;
+    width: 120%;
+    
+}
+
+button{
+    font-family: "Inter", sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  background-color: #00ffff;
+  cursor: pointer;
+  color: #0b113b;
+  padding: 0.7em 1.5em;
+  margin-right: 50%;
+  margin-left: 50%;
+  width: 280px;
+  border: none;
+  box-shadow: 20px 20px 20px 20px #4ba8d7;
+;
+}
