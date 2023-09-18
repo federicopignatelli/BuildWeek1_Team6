@@ -121,4 +121,28 @@ const x = function () {
   }
 };
 
+// visualizzare una domanda alla volta e aggiungere cambio domanda una volta selezionato un input
+// aggiungere conteggio 'punteggio' e risulati una volta finite le domande
+
 x();
+
+let z;
+let secondi = 60;
+
+const timer = function () {
+  let timerP = document.querySelector("#timer");
+  if (secondi === 0) {
+    // 'link' alla pagina successiva
+    clearInterval(z);
+  } else {
+    secondi--;
+    timerP.textContent = secondi;
+    // cambiare colore del background del div in percentuale
+  }
+};
+
+const contoAllaRovescia = function () {
+  z = setInterval(timer, 1000);
+};
+
+contoAllaRovescia();
