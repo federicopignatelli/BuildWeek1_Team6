@@ -1,11 +1,14 @@
-.logo{
+.logo1{
     width: 100%;
     text-align: left;
 }
-.logo img{
-    width: 10em;
-}
-.ask{
+.logo1 img{
+    width: 15em;
+  margin-top: 5em;
+  margin-left: 10em;
+  margin-right: 10em;
+} 
+.ask{ 
     margin-top: 2em;
 }
 .box-answer{
@@ -25,7 +28,7 @@ h1{
     font-weight: bold;
     font-size: 60px;
     font-family: 'Inter', sans-serif;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 
 }
 *{
@@ -33,6 +36,7 @@ h1{
     text-align: center;
     color: white;
     font-family: 'Outfit', sans-serif;
+    margin-top: 5em;
 }
 footer{
    font-size: 50px;
