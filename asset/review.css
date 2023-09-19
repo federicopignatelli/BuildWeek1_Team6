@@ -65,3 +65,15 @@ button{
 .container{
     margin-left: 140px;
 }
+.rating_box {
+    display: flex;
+    gap: 20px;
+    margin-left: 300px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+i{font-size:25px;
+    cursor: pointer;
+    color: #0B113B;
+    
+}
