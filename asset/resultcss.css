@@ -1,0 +1,64 @@
+/*STILI GENERALI*/
+
+h1,
+h2,
+h3 {
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+}
+
+p {
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+h3 {
+    font-size: 1.7em;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+/*STILI PAGINA*/
+.titlehead {
+    text-align: center;
+    margin-top: 80px;
+}
+
+
+.boxwithresult {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+.correct_left {
+    text-align: left;
+    display: inline-block;
+}
+
+.wrong_right {
+    text-align: right;
+    display: inline-block;
+}
+
+.button {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.8em 3em;
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    background-color: #ffffff00;
+    border: 3px solid #fff;
+    margin-top: 80px;
+}
