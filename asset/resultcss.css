@@ -48,10 +48,27 @@ h3 {
 .resultgraphic {
     width: 400px;
     height: 400px;
+    text-align: center;
+    padding: 2em;
+    line-height: 1.4em;
+    border: 0px solid #ffffff00;
+    border-radius: 50%;
     background-size: 100% 100%;
     background-position: 0px 0px;
-    background-image: conic-gradient(from 0deg at 50% 50%, #00FFFFFF 29%, #900080 29%);
-    text-align: center;
+    background-image: conic-gradient(from 175deg at 50% 50%, #00FFFFFF 50%, #900080 50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#passed {
+    width: 200px;
+    height: 200px;
+    border: 0px solid #ffffff00;
+    border-radius: 50%;
+    background-color: #0b113b;
+    padding: 20%;
 }
 
 .correct_left {
@@ -64,10 +81,6 @@ h3 {
     display: inline-block;
 }
 
-#passed {
-    background-color: #0c113b;
-    border: 0px solid #ffffff00;
-}
 
 .button {
     font-family: "Inter", sans-serif;
