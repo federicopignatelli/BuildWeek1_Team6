@@ -39,6 +39,13 @@ h3 {
     margin-top: 100px;
 }
 
+
+.resultgraphic {
+    background-size: 100% 100%;
+    background-position: 0px 0px;
+    background-image: conic-gradient(from 0deg at 50% 50%, #00FFFFFF 29%, #900080 29%);
+}
+
 .correct_left {
     text-align: left;
     display: inline-block;
