@@ -70,11 +70,7 @@ button {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-i {
-  font-size: 25px;
-  cursor: pointer;
-  color: #0b113b;
-}
+
 textarea {
   font-family: "Inter", sans-serif;
   font-size: 20px;
@@ -91,3 +87,15 @@ form {
   text-align: center;
   margin-top: 3em;
 }
+
+i{font-size:25px;
+    cursor: pointer;
+    color: #131c5f;
+    transition: color 0.2s ease;
+    
+}
+.active{
+ color:#00ffff;
+
+}
+

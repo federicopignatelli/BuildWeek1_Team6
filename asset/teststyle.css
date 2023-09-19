@@ -11,6 +11,7 @@
 .ask{ 
     margin-top: 2em;
 }
+
 .box-answer{
 display: inline-block;
 background-color: rgba(0, 0, 0, 0.1);
@@ -29,19 +30,71 @@ h1{
     font-size: 60px;
     font-family: 'Inter', sans-serif;
     margin-bottom: 1em;
-
 }
+.ask p{
+    margin-top: 7em;
+}
+
 *{
     font-size: 38px;
     text-align: center;
     color: white;
     font-family: 'Outfit', sans-serif;
-    margin-top: 5em;
 }
 footer{
    font-size: 50px;
    margin-top: 5em;
+   font-family: 'Outfit', sans-serif;
 }
 span{
     color: #D20094; ;
 }
+#timer{
+    float: right;
+    margin-right: 10vw;
+}
+.base-timer {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .base-timer__svg {
+    transform: scaleX(-1);
+  }
+  
+  .base-timer__circle {
+    fill: none;
+    stroke: none;
+  }
+  
+  .base-timer__path-elapsed {
+    stroke-width: 10px;
+    stroke: grey;
+  }
+  
+  .base-timer__path-remaining {
+    stroke-width: 10px;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    fill-rule: nonzero;
+    stroke: currentColor;
+  }
+  
+  .base-timer__path-remaining.green {
+    color: #00FFFF
+  }
+  .base-timer__label {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+  }
