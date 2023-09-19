@@ -74,6 +74,11 @@ button{
 }
 i{font-size:25px;
     cursor: pointer;
-    color: #0B113B;
+    color: #131c5f;
+    transition: color 0.2s ease;
     
+}
+.active{
+ color:#00ffff;
+
 }
