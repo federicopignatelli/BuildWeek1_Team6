@@ -40,9 +40,16 @@ document.getElementById("timer").innerHTML = `
 
 startTimer();
 
+// FUNZIONE PER PASSARE ALLA DOMANDA SUCCESSIVA ALLO SCADERE DEL TEMPO (?)
 function onTimesUp() {
   clearInterval(timerInterval);
 }
+// FUNZIONE PER PASSARE ALLA DOMANDA SUCCESSIVA ALLO SCADERE DEL TEMPO (?)
+//   numeroDomanda++;
+//   document.querySelector("footer p").innerHTML = `Question ${numeroDomanda + 1}<span>/10</span>`;
+//   mostraDomanda(numeroDomanda);
+//   resetTimer();
+// }
 
 function startTimer() {
   timerInterval = setInterval(() => {
@@ -58,6 +65,14 @@ function startTimer() {
       onTimesUp();
     }
   }, 1000);
+}
+function resetTimer() {
+  clearInterval(timerInterval);
+  timePassed = 0;
+  timeLeft = TIME_LIMIT;
+
+  // Riparte il timer
+  startTimer();
 }
 
 function formatTime(time) {
@@ -103,3 +118,4 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
+

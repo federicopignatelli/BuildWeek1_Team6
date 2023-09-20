@@ -94,55 +94,88 @@ const questions = [
   },
 ];
 
-let punteggio = [];
+let punteggio = 0;
 
 let numeroDomanda = 0;
 
-const x = function () {
-  let divQuiz = document.querySelector(".domande");
-  for (y = 0; y < questions.length; y++) {
-    let answers = [
-      ...questions[y].incorrect_answers,
-      questions[y].correct_answer,
-    ];
-    let pDom1 = document.createElement("p");
-    pDom1.innerText = questions[y].question;
-    for (i = 0; i < answers.length; i++) {
-      let lDom1 = document.createElement("label");
-      lDom1.classList.add("lDom");
-      let newInput = document.createElement("input");
-      newInput.type = "radio";
-      newInput.classList.add("radioButton");
-      lDom1.innerText = answers[i];
-      divQuiz.appendChild(pDom1);
-      pDom1.appendChild(lDom1);
-      lDom1.appendChild(newInput);
-    }
+let divQuiz;
+function onTimesUp() {
+  // Visualizza la domanda successiva e resetta il timer
+  numeroDomanda++;
+  document.querySelector("footer p").innerHTML = `Question ${numeroDomanda + 1}<span>/10</span>`;
+  mostraDomanda(numeroDomanda);
+
+  // Fai ripartire il timer
+  resetTimer();
+}
+
+const mostraDomanda = function (i) {
+  if (i >= questions.length) {
+    // localStorage.setItem("punteggio", punteggio);
+    window.location.href = "result.html";
   }
-};
-
-// visualizzare una domanda alla volta e aggiungere cambio domanda una volta selezionato un input
-// aggiungere conteggio 'punteggio' e risulati una volta finite le domande
-
-x();
-
-let z;
-let secondi = 60;
-
-const timer = function () {
-  let timerP = document.querySelector("#timer");
-  if (secondi === 0) {
-    // 'link' alla pagina successiva
-    clearInterval(z);
-  } else {
-    secondi--;
-    timerP.textContent = secondi;
-    // cambiare colore del background del div in percentuale
+  resetTimer();
+  if (divQuiz) {
+    divQuiz.innerHTML = "";
   }
+
+  let risposte = [
+    ...questions[i].incorrect_answers,
+    questions[i].correct_answer,
+  ];
+
+  let pDom1 = document.createElement("p");
+  pDom1.innerText = questions[i].question;
+  let divX = document.createElement("div");
+
+  for (let y = 0; y < risposte.length; y++) {
+    let nuovoPulsante = document.createElement("button");
+    nuovoPulsante.classList.add("box-answer");
+    nuovoPulsante.innerText = risposte[y];
+    nuovoPulsante.addEventListener("click", function () {
+      if (risposte[y] === questions[i].correct_answer) {
+        alert("corretto")
+        punteggio++;
+      }
+      else{
+        alert("sbagliato")
+      }
+
+      numeroDomanda++;
+      document.querySelector("footer p").innerHTML = `Question ${
+        numeroDomanda + 1
+      }<span>/10</span>`;  
+      mostraDomanda(numeroDomanda);
+    });
+    divQuiz.appendChild(pDom1);
+    pDom1.appendChild(divX);
+    divX.appendChild(nuovoPulsante); 
+  }
+  console.log(punteggio);
 };
 
-const contoAllaRovescia = function () {
-  z = setInterval(timer, 1000);
+window.onload = function () {
+  divQuiz = document.querySelector(".domande");
+  mostraDomanda(numeroDomanda);
 };
 
-contoAllaRovescia();
+// let z;
+// let secondi = 60;
+
+// const timer = function () {
+//   let timerP = document.querySelector("#timer");
+//   if (secondi === 0) {
+//     // 'link' alla pagina successiva
+//     clearInterval(z);
+//   } else {
+//     secondi--;
+//     timerP.textContent = secondi;
+//     // cambiare colore del background del div in percentuale
+//   }
+// };
+
+// const contoAllaRovescia = function () {
+//   z = setInterval(timer, 1000);
+// };
+
+// contoAllaRovescia();
