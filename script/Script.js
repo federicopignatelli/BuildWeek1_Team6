@@ -102,8 +102,8 @@ let divQuiz;
 
 const mostraDomanda = function (i) {
   if (i >= questions.length) {
+    // localStorage.setItem("punteggio", punteggio);
     window.location.href = "result.html";
-    return;
   }
 
   if (divQuiz) {
