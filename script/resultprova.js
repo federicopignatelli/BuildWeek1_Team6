@@ -16,6 +16,9 @@ const data = {
         ],
         hoverOffset: 0,
         borderWidth: 0,
+        cutout: '90%',
+        radius: '100%',
+        hoverBackgroundColor: ["backgroundColor"] //non funziona
     }]
 };
 
@@ -25,9 +28,8 @@ const config = {
 }
 
 const grafico = function () {
-    const graficocanvas = document.getElementsByClassName("grafico");
-    const grafico = new Chart(graficocanvas, config)
-
+    const containergrafico = document.getElementsByClassName("grafico");
+    const grafico = new Chart(containergrafico, config)
 }
 
 grafico()
