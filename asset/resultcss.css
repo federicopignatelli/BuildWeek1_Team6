@@ -32,7 +32,7 @@ h3 {
 /*STILI PAGINA*/
 .titlehead {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 
@@ -41,22 +41,24 @@ h3 {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-top: 100px;
-    margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 50px;
 }
 
 
 .grafico {
     text-align: center;
-    box-shadow: 0px 0px 20px #00ffff, 0px 0px 0px #00ffff, 0px 0px 0px #00ffff,
-        0px 0px 0px #00ffff;
-    border: 1px solid #00ffff;
+    border: 0px solid #838383;
+    border-radius: 50%;
+    box-shadow:
+        0px 0px 20px #000000,
+        0px 0px 0px #000000,
+        0px 0px 0px #000000,
+        0px 0px 0px #000000;
+
 }
 
 #containergrafico {
-    width: 50%;
+    width: 38%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -65,10 +67,8 @@ h3 {
 
 #passed {
     width: 300px;
-    height: 120px;
-    border: 0px solid #ffffff00;
-    border-radius: 50%;
-    padding: 5%;
+    height: 300px;
+    padding-top: 9em;
     position: absolute;
     text-align: center;
     line-height: 1.4em;
@@ -82,10 +82,9 @@ h3 {
 
 #notpassed {
     width: 300px;
-    height: 120px;
+    height: 300px;
     border: 0px solid #ffffff00;
-    border-radius: 50%;
-    padding: 5%;
+    padding-top: 9em;
     position: absolute;
     text-align: center;
     line-height: 1.4em;
@@ -114,9 +113,15 @@ h3 {
     cursor: pointer;
     padding: 0.8em 3em;
     display: block;
-    margin: 0 auto;
     color: #fff;
     background-color: #ffffff00;
     border: 3px solid #fff;
-    margin-top: 80px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.containerbutton {
+    padding-left: 1.5vw;
 }

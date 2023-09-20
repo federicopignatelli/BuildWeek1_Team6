@@ -1,4 +1,4 @@
-const giuste = 4
+const giuste = 5
 const sbagliate = 10 - giuste
 
 
@@ -45,3 +45,4 @@ const grafico = function () {
 }
 
 grafico()
+
