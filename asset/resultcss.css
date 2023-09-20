@@ -3,125 +3,121 @@
 h1,
 h2,
 h3 {
-    color: #fff;
-    font-family: 'Outfit', sans-serif;
+  color: #fff;
+  font-family: "Outfit", sans-serif;
 }
 
 p {
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
 }
 
 h1 {
-    font-size: 60px;
+  font-size: 60px;
 }
 
 h3 {
-    font-size: 1.7em;
+  font-size: 1.7em;
 }
 
 .bold {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .azure {
-    color: #00FFFFFF;
+  color: #00ffffff;
+}
+
+.red {
+  color: #900080;
 }
 
 /*STILI PAGINA*/
 .titlehead {
-    text-align: center;
-    margin-top: 40px;
+  text-align: center;
+  margin-top: 40px;
 }
-
 
 .boxwithresult {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
 }
 
-
 .grafico {
-    text-align: center;
-    border: 0px solid #838383;
-    border-radius: 50%;
-    box-shadow:
-        0px 0px 20px #000000,
-        0px 0px 0px #000000,
-        0px 0px 0px #000000,
-        0px 0px 0px #000000;
-
+  text-align: center;
+  border: 0px solid #838383;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px #000000, 0px 0px 0px #000000, 0px 0px 0px #000000,
+    0px 0px 0px #000000;
 }
 
 #containergrafico {
-    width: 38%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  width: 38%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 #passed {
-    width: 300px;
-    height: 300px;
-    padding-top: 9em;
-    position: absolute;
-    text-align: center;
-    line-height: 1.4em;
+  width: 300px;
+  height: 300px;
+  padding-top: 9em;
+  position: absolute;
+  text-align: center;
+  line-height: 1.4em;
 }
 
 #passed .bold {
-    font-size: 24px;
-    line-height: 1.4em;
+  font-size: 24px;
+  line-height: 1.4em;
 }
 
-
 #notpassed {
-    width: 300px;
-    height: 300px;
-    border: 0px solid #ffffff00;
-    padding-top: 9em;
-    position: absolute;
-    text-align: center;
-    line-height: 1.4em;
+  width: 300px;
+  height: 300px;
+  border: 0px solid #ffffff00;
+  padding-top: 9em;
+  position: absolute;
+  text-align: center;
+  line-height: 1.4em;
 }
 
 #notpassed .bold {
-    font-size: 24px;
-    line-height: 1.4em;
+  font-size: 24px;
+  line-height: 1.4em;
 }
 
 .correct_left {
-    text-align: left;
-    display: inline-block;
+  text-align: left;
+  display: inline-block;
 }
 
 .wrong_right {
-    text-align: right;
-    display: inline-block;
+  text-align: right;
+  display: inline-block;
 }
 
-
 .button {
-    font-family: "Inter", sans-serif;
-    font-size: 1.5em;
-    font-weight: 700;
-    cursor: pointer;
-    padding: 0.8em 3em;
-    display: block;
-    color: #fff;
-    background-color: #ffffff00;
-    border: 3px solid #fff;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.8em 3em;
+  display: block;
+  color: #fff;
+  background-color: #ffffff00;
+  border: 3px solid #fff;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .containerbutton {
-    padding-left: 1.5vw;
+  padding-left: 1.5vw;
 }
