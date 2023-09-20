@@ -16,15 +16,27 @@ const data = {
         ],
         hoverOffset: 0,
         borderWidth: 0,
-        cutout: '90%',
+        cutout: '80%',
         radius: '100%',
-        hoverBackgroundColor: ["backgroundColor"] //non funziona
     }]
 };
 
 const config = {
     type: 'doughnut',
     data: data,
+    options: {
+        plugins: {
+            legend: {
+                display: false,
+            },
+        },
+    },
+    option: {
+        elements: {
+            arc: {
+            },
+        }
+    }
 }
 
 const grafico = function () {
