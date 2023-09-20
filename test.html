@@ -3,47 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="asset/reset.css">
-    <link rel="stylesheet" href="mainstyles.css">
-    <link rel="stylesheet" href="asset/teststyle.css">
+    <link rel="stylesheet" href="asset/reset.css" />
+    <link rel="stylesheet" href="mainstyles.css" />
+    <link rel="stylesheet" href="asset/test.css" />
     <title>Questions</title>
   </head>
 
   <body>
-    <header>
-      <div id="testa">
-        <div class="logo1">
-          <img src="asset/img/epicode_logo.png" alt="logo-epicode" />
-        </div>
-        <div id="timer">
+    <div class="container">
+      <header>
+        <img src="asset/img/epicode_logo.png" alt="logo-epicode" class="logo" />
+        <div>
+          <div id="timer">
             <!-- js timer -->
-        </div>
-      </div>
-    </header>
-    <main>
+          </div>
+      </header>
+      <main>
+        <form class="domande"></form>
+      </main>
+      <footer>
+        <p>Question 1<span>/10</span></p>
+      </footer>
 
-        <!-- Domanda -->
-    <div class="ask">
-        <!-- js? -->
-        <p>How can I create a</p><h1> checkbox in HTML?</h1> 
+      <script src="script/Script.js"></script>
+      <script src="script/Timer.js"> </script>
     </div>
-
-    <!-- blocco bottoni all'interno -->
-    <form>
-        <div class="answers">       
-            <button class="box-answer"> &LT; input type &equals; &QUOT;check &QUOT; &GT;</button>        
-            <button class="box-answer"> &LT; input type &equals; &QUOT;checkbox &QUOT; &GT;</button>
-        </div>
-        <div class="answers">
-            <button class="box-answer">  &LT; checkbox &GT;</button>        
-            <button class="box-answer"> &LT; input type &equals; &QUOT;button &QUOT; &GT;</button>
-        </div>
-    </form>
-</main>
-<footer>
-<!-- js -->
-<p>Question 1<span>/10</span></p>
-</footer>
-<script src="script/Timer.js"></script>
   </body>
 </html>

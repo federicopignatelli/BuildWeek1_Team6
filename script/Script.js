@@ -102,8 +102,8 @@ let divQuiz;
 
 const mostraDomanda = function (i) {
   if (i >= questions.length) {
+    window.location.href = "result.html";
     return;
-    // inserire link pagina risultati
   }
 
   if (divQuiz) {
