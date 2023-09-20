@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="asset/reset.css" />
     <link rel="stylesheet" href="mainstyles.css" />
     <link rel="stylesheet" href="asset/resultcss.css" />
+
 </head>
 
 <body>
@@ -30,8 +31,7 @@
 
 
 
-            <div class="resultgraphic">
-
+            <div id="containergrafico">
                 <div id="passed">
                     <p class="bold">Congratulation!</p>
                     <p class="bold azure">You passed the exam</p> <br>
@@ -39,21 +39,15 @@
                         Check your email (including promotions / spam folder)
                     </p>
                 </div>
-            </div>
-
-
-
-
-            <!---<div class="resultgraphic">
-
-                <div id="notpassed">
+                <!---<div id="notpassed">
                     <p class="bold">Exam not passed</p>
                     <p>You failed the exam but if you want you can recover your grade with your teacher.
                         Don't give up.
                     </p>
-                </div>
-
                 </div>--->
+                <canvas class="grafico">
+                </canvas>
+            </div>
 
 
 
@@ -70,6 +64,10 @@
                 <button class="button">RATE US</button>
             </form>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"
+            integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="script/resultprova.js"></script>
 </body>
 
 </html>

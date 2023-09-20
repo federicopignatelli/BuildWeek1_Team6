@@ -42,33 +42,46 @@ h3 {
     justify-content: space-between;
     align-items: center;
     margin-top: 100px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
-.resultgraphic {
-    width: 400px;
-    height: 400px;
+.grafico {
     text-align: center;
-    padding: 2em;
-    line-height: 1.4em;
-    border: 0px solid #ffffff00;
-    border-radius: 50%;
-    background-size: 100% 100%;
-    background-position: 0px 0px;
-    background-image: conic-gradient(from 175deg at 50% 50%, #00FFFFFF 50%, #900080 50%);
+
+
+}
+
+#containergrafico {
+    width: 50%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
 #passed {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 120px;
     border: 0px solid #ffffff00;
     border-radius: 50%;
-    background-color: #0b113b;
-    padding: 20%;
+    padding: 5%;
+    position: absolute;
+    text-align: center;
+    line-height: 1.4em;
+}
+
+#notpassed {
+    width: 300px;
+    height: 120px;
+    border: 0px solid #ffffff00;
+    border-radius: 50%;
+    padding: 5%;
+    position: absolute;
+    text-align: center;
+    line-height: 1.4em;
 }
 
 .correct_left {
