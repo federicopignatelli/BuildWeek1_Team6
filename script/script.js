@@ -342,10 +342,16 @@ const mostraDomanda = function (i) {
     nuovoPulsante.innerText = risposte[y];
     nuovoPulsante.addEventListener("click", function () {
       if (risposte[y] === questions[i].correct_answer) {
-        alert("corretto");
+        // alert("corretto");
+        Swal.fire("Good job!", "Correct answer!", "success");
         punteggio++;
       } else {
-        alert("sbagliato");
+        // alert("sbagliato");
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Wrong answer",
+        });
       }
 
       document.querySelector("footer p").innerHTML = `Question ${
