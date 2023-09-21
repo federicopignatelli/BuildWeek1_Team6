@@ -40,9 +40,16 @@ document.getElementById("timer").innerHTML = `
 
 startTimer();
 
+// FUNZIONE PER PASSARE ALLA DOMANDA SUCCESSIVA ALLO SCADERE DEL TEMPO (?)
 function onTimesUp() {
   clearInterval(timerInterval);
 }
+// FUNZIONE PER PASSARE ALLA DOMANDA SUCCESSIVA ALLO SCADERE DEL TEMPO (?)
+//   numeroDomanda++;
+//   document.querySelector("footer p").innerHTML = `Question ${numeroDomanda + 1}<span>/10</span>`;
+//   mostraDomanda(numeroDomanda);
+//   resetTimer();
+// }
 
 function startTimer() {
   timerInterval = setInterval(() => {
@@ -59,6 +66,14 @@ function startTimer() {
     }
   }, 1000);
 }
+function resetTimer() {
+  clearInterval(timerInterval);
+  timePassed = 0;
+  timeLeft = TIME_LIMIT;
+
+  // Riparte il timer
+  startTimer();
+}
 
 function formatTime(time) {
   const minutes = Math.floor(time / 60);
@@ -69,25 +84,6 @@ function formatTime(time) {
   return `SECONDS <br>
   ${seconds} <br>
   REMAINING`;
-}
-
-function setRemainingPathColor(timeLeft) {
-  const { alert, warning, info } = COLOR_CODES;
-  if (timeLeft <= alert.threshold) {
-    document
-      .getElementById("base-timer-path-remaining")
-      .classList.remove(warning.color);
-    document
-      .getElementById("base-timer-path-remaining")
-      .classList.add(alert.color);
-  } else if (timeLeft <= warning.threshold) {
-    document
-      .getElementById("base-timer-path-remaining")
-      .classList.remove(info.color);
-    document
-      .getElementById("base-timer-path-remaining")
-      .classList.add(warning.color);
-  }
 }
 
 function calculateTimeFraction() {
@@ -103,3 +99,4 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
+
