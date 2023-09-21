@@ -18,15 +18,21 @@ b {
   padding-bottom: 0.4em;
 }
 
+main {
+  margin-left: 25%;
+}
+
 main p {
   color: white;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 1.2em;
 }
+
 .first {
   margin-left: 0;
 }
+
 main li {
   color: white;
   font-family: "Inter", sans-serif;
@@ -34,14 +40,17 @@ main li {
   font-size: 16px;
   line-height: 1.6em;
 }
+
 div {
   margin: 2em;
 }
+
 form {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
 }
+
 button {
   font-family: "Outfit", sans-serif;
   font-size: 1.5em;
@@ -61,6 +70,7 @@ button {
   align-items: center;
   margin-left: 0;
 }
+
 input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
@@ -74,11 +84,13 @@ input[type="checkbox"] {
   align-items: center;
   justify-content: center;
 }
+
 label {
   color: white;
   font-family: "Inter", sans-serif;
   font-size: 16px;
 }
+
 input[type="checkbox"]:after {
   font-family: "Font Awesome 5 Free";
   content: "\f00c";
