@@ -1,57 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Epicode Benchmark</title>
-    <link rel="stylesheet" href="asset/reset.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="mainstyles.css" />
-    <link rel="stylesheet" href="asset/welcome.css" />
-  </head>
 
-  <body>
-    <div class="container">
-      <header>
-        <img src="asset/img/epicode_logo.png" alt="epicode-logo" class="logo" />
-      </header>
-      <main>
-        <h1>Welcome to <br /><b>your exam</b></h1>
-        <div class="first">
-          <p class="instructions">Instructions</p>
-          <p>
-            We don't expect most engineers to know tha answers to all of these
-            <br />
-            questions, so don't worry if you're unsure of a few of them.
-          </p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Epicode Benchmark</title>
+  <link rel="stylesheet" href="asset/reset.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link rel="stylesheet" href="mainstyles.css" />
+  <link rel="stylesheet" href="asset/welcome.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <img src="asset/img/epicode_logo.png" alt="epicode-logo" class="logo" />
+    </header>
+    <main>
+      <h1>Welcome to <b>your exam</b></h1>
+      <div class="first">
+        <p class="instructions">Instructions</p>
+        <p>
+          We don't expect most engineers to know tha answers to all of these
+          <br />
+          questions, so don't worry if you're unsure of a few of them.
+        </p>
+      </div>
+      <div>
+        <ul>
+          <li>
+            Each question is <b>timed</b> and can only be
+            <b>answered once</b>.
+          </li>
+          <li>
+            Changing browser tab or opening other windows will
+            <b>invalidate the question</b>.
+          </li>
+          <li>This exam will take approx. <b>0-5 minutes</b>.</li>
+        </ul>
+      </div>
+      <form action="test.html">
+        <div class="check">
+          <input type="checkbox" id="checkbox" required />
+          <label for="checkbox">I promise to answer myself without help from anyone</label>
         </div>
-        <div>
-          <ul>
-            <li>
-              Each question is <b>timed</b> and can only be
-              <b>answered once</b>.
-            </li>
-            <li>
-              Changing browser tab or opening other windows will
-              <b>invalidate the question</b>.
-            </li>
-            <li>This exam will take approx. <b>0-5 minutes</b>.</li>
-          </ul>
-        </div>
-        <form action="test.html">
-          <div class="check">
-            <input type="checkbox" id="checkbox" required />
-            <label for="checkbox"
-              >I promise to answer myself without help from anyone</label
-            >
-          </div>
-          <!-- <div><p>I promise to answer myself without help from anyone</p></div> -->
-          <div><button class="button_blue">PROCEED</button></div>
-        </form>
-      </main>
-    </div>
-  </body>
+        <!-- <div><p>I promise to answer myself without help from anyone</p></div> -->
+        <div><button class="button_blue">PROCEED</button></div>
+      </form>
+    </main>
+  </div>
+</body>
+
 </html>

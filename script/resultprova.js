@@ -4,12 +4,12 @@ const giuste = punteggioRecuperato;
 const sbagliate = 10 - punteggioRecuperato;
 
 const data = {
-  labels: ["Wrongs", "Corrects"],
+  labels: ["Corrects", "Wrongs"],
   datasets: [
     {
       label: "My First Dataset",
       data: [giuste, sbagliate],
-      backgroundColor: ["#900080", "#00FFFFFF"],
+      backgroundColor: ["#00FFFFFF", "#900080"],
       hoverOffset: 0,
       borderWidth: 0,
       cutout: "80%",
