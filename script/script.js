@@ -342,16 +342,52 @@ const mostraDomanda = function (i) {
     nuovoPulsante.innerText = risposte[y];
     nuovoPulsante.addEventListener("click", function () {
       if (risposte[y] === questions[i].correct_answer) {
-        // alert("corretto");
-        Swal.fire("Good job!", "Correct answer!", "success");
+      let timerInterval
+      Swal.fire({
+      icon: "success",
+      title: 'Corret!!!',
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: () => {
+      Swal.showLoading()
+      const b = Swal.getHtmlContainer().querySelector('b')
+      timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})
         punteggio++;
       } else {
         // alert("sbagliato");
         Swal.fire({
           icon: "error",
-          title: "Oops...",
-          text: "Wrong answer",
-        });
+          title: 'WRONG!!!!',
+          background: '#900080;',
+          timer: 1500,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+            timerInterval = setInterval(() => {
+              b.textContent = Swal.getTimerLeft()
+            }, 100)
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log('I was closed by the timer')
+          }
+        })
+        
       }
 
       document.querySelector("footer p").innerHTML = `Question ${
