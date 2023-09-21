@@ -407,6 +407,7 @@ document.getElementById("timer").innerHTML = `
 `;
 
 function startTimer() {
+  document.querySelector("#timer").style.display = "block";
   timerInterval = setInterval(() => {
     timePassed = timePassed += 1;
     timeLeft = TIME_LIMIT - timePassed;
