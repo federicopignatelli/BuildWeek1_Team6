@@ -414,12 +414,16 @@ function startTimer() {
     document.getElementById("base-timer-label").innerHTML =
       formatTime(timeLeft);
     if (timeLeft === 0) {
-      numeroDomanda++;
-      const questionNumberElement = document.querySelector("footer p");
-      questionNumberElement.innerHTML = `Question ${
-        numeroDomanda + 1
-      }<span>/10</span>`;
-      mostraDomanda(numeroDomanda);
+      if (numeroDomanda >= 9) {
+        window.location.href = "result.html";
+      } else {
+        numeroDomanda++;
+        const questionNumberElement = document.querySelector("footer p");
+        questionNumberElement.innerHTML = `Question ${
+          numeroDomanda + 1
+        }<span>/10</span>`;
+        mostraDomanda(numeroDomanda);
+      }
     }
     setCircleDasharray();
   }, 1000);
