@@ -99,6 +99,7 @@ let punteggio = 0;
 let numeroDomanda = 0;
 
 let divQuiz;
+
 function onTimesUp() {
   // Visualizza la domanda successiva e resetta il timer
   numeroDomanda++;
