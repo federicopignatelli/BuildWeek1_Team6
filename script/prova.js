@@ -278,6 +278,8 @@ let divQuiz;
 
 let difficoltàSelezionata = null;
 
+let primaDomandaVisualizzata = false;
+
 const easyButton = document.getElementById("easy-button");
 const mediumButton = document.getElementById("medium-button");
 const hardButton = document.getElementById("hard-button");
@@ -295,7 +297,10 @@ const mostraDomandePerDifficoltà = function (difficoltà) {
   hardButton.style.display = "none";
   document.querySelector("main p").style.display = "none";
   document.querySelector("#question-number").style.display = "block";
-
+  if (!primaDomandaVisualizzata) {
+    primaDomandaVisualizzata = true;
+    startTimer();
+  }
   mostraDomanda(0);
 };
 
@@ -308,6 +313,8 @@ const mostraDomanda = function (i) {
     localStorage.setItem("punteggio", punteggio);
     window.location.href = "result.html";
   }
+
+  resetTimer();
 
   if (divQuiz) {
     divQuiz.innerHTML = "";
@@ -335,7 +342,10 @@ const mostraDomanda = function (i) {
     nuovoPulsante.innerText = risposte[y];
     nuovoPulsante.addEventListener("click", function () {
       if (risposte[y] === questions[i].correct_answer) {
+        alert("corretto");
         punteggio++;
+      } else {
+        alert("sbagliato");
       }
 
       document.querySelector("footer p").innerHTML = `Question ${
@@ -353,4 +363,95 @@ const mostraDomanda = function (i) {
 
 window.onload = function () {
   divQuiz = document.querySelector(".domande");
+  // mostraDomanda(numeroDomanda);
 };
+
+const FULL_DASH_ARRAY = 283;
+const WARNING_THRESHOLD = 10;
+const ALERT_THRESHOLD = 20;
+
+const COLOR_CODES = {
+  info: {
+    color: "green",
+  },
+};
+
+const TIME_LIMIT = 20;
+let timePassed = 0;
+let timeLeft = TIME_LIMIT;
+let timerInterval = null;
+let remainingPathColor = COLOR_CODES.info.color;
+
+document.getElementById("timer").innerHTML = `
+<div class="base-timer">
+  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g class="base-timer__circle">
+      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+      <path
+        id="base-timer-path-remaining"
+        stroke-dasharray="283"
+        class="base-timer__path-remaining ${remainingPathColor}"
+        d="
+          M 50, 50
+          m -45, 0
+          a 45,45 0 1,0 90,0
+          a 45,45 0 1,0 -90,0
+        "
+      ></path>
+    </g>
+  </svg>
+  <span id="base-timer-label" class="base-timer__label">${formatTime(
+    timeLeft
+  )}</span>
+</div>
+`;
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    timePassed = timePassed += 1;
+    timeLeft = TIME_LIMIT - timePassed;
+    document.getElementById("base-timer-label").innerHTML =
+      formatTime(timeLeft);
+    if (timeLeft === 0) {
+      numeroDomanda++;
+      const questionNumberElement = document.querySelector("footer p");
+      questionNumberElement.innerHTML = `Question ${
+        numeroDomanda + 1
+      }<span>/10</span>`;
+      mostraDomanda(numeroDomanda);
+    }
+    setCircleDasharray();
+  }, 1000);
+}
+function resetTimer() {
+  clearInterval(timerInterval);
+  timePassed = 0;
+  timeLeft = TIME_LIMIT;
+  // Riparte il timer
+  startTimer();
+}
+
+function formatTime(time) {
+  const minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+  return `<p style="font-size: 0.8em">SECONDS 
+  ${seconds} <br>
+  REMAINING`;
+}
+
+function calculateTimeFraction() {
+  const rawTimeFraction = timeLeft / TIME_LIMIT;
+  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+}
+
+function setCircleDasharray() {
+  const circleDasharray = `${(
+    calculateTimeFraction() * FULL_DASH_ARRAY
+  ).toFixed(0)} 283`;
+  document
+    .getElementById("base-timer-path-remaining")
+    .setAttribute("stroke-dasharray", circleDasharray);
+}
