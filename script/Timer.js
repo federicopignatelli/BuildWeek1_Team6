@@ -1,6 +1,6 @@
 const FULL_DASH_ARRAY = 283;
 const WARNING_THRESHOLD = 10;
-const ALERT_THRESHOLD = 5;
+const ALERT_THRESHOLD = 20;
 
 const COLOR_CODES = {
   info: {
@@ -41,9 +41,7 @@ document.getElementById("timer").innerHTML = `
 startTimer();
 
 // FUNZIONE PER PASSARE ALLA DOMANDA SUCCESSIVA ALLO SCADERE DEL TEMPO (?)
-function onTimesUp() {
-  clearInterval(timerInterval);
-}
+
 // FUNZIONE PER PASSARE ALLA DOMANDA SUCCESSIVA ALLO SCADERE DEL TEMPO (?)
 //   numeroDomanda++;
 //   document.querySelector("footer p").innerHTML = `Question ${numeroDomanda + 1}<span>/10</span>`;
@@ -58,19 +56,17 @@ function startTimer() {
     document.getElementById("base-timer-label").innerHTML = formatTime(
       timeLeft
     );
-    setCircleDasharray();
-    setRemainingPathColor(timeLeft);
-
-    if (timeLeft === 0) {
-      onTimesUp();
+    if (timePassed===20){
+      numeroDomanda++
+      window.onload()
     }
+    setCircleDasharray();
   }, 1000);
 }
 function resetTimer() {
   clearInterval(timerInterval);
   timePassed = 0;
   timeLeft = TIME_LIMIT;
-
   // Riparte il timer
   startTimer();
 }
@@ -81,7 +77,7 @@ function formatTime(time) {
   if (seconds < 10) {
     seconds = `0${seconds}`;
   }
-  return `SECONDS <br>
+  return `<p style="font-size: 0.8em">SECONDS 
   ${seconds} <br>
   REMAINING`;
 }

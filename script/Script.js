@@ -105,6 +105,7 @@ function onTimesUp() {
   numeroDomanda++;
   document.querySelector("footer p").innerHTML = `Question ${numeroDomanda + 1}<span>/10</span>`;
   mostraDomanda(numeroDomanda);
+ 
 
   // Fai ripartire il timer
   resetTimer();
@@ -119,7 +120,7 @@ const mostraDomanda = function (i) {
   if (divQuiz) {
     divQuiz.innerHTML = "";
   }
-
+ 
   let risposte = [
     ...questions[i].incorrect_answers,
     questions[i].correct_answer,
