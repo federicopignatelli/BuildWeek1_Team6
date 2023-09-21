@@ -1,6 +1,7 @@
-const giuste = 5;
-//  punteggioRecuperato
-const sbagliate = 10 - giuste;
+const punteggioRecuperato = localStorage.getItem("punteggio");
+
+const giuste = punteggioRecuperato;
+const sbagliate = 10 - punteggioRecuperato;
 
 const data = {
   labels: ["Wrongs", "Corrects"],
@@ -42,15 +43,37 @@ const grafico = function () {
 grafico();
 
 const messaggio = function () {
-  const punteggioRecuperato = localStorage.getItem(punteggio);
   if (punteggioRecuperato >= 6) {
     let divNotPassed = document.getElementById("notpassed");
-    divNotPassed.setAttribute("id", "sparisce");
     divNotPassed.style.display = "none";
   } else {
     let divPassed = document.getElementById("passed");
-    divPassed.setAttribute("id", "sparisce");
     divPassed.style.display = "none";
   }
 };
 messaggio();
+
+const returnCorrectPercentage = function () {
+  let percentage = (punteggioRecuperato / 10) * 100;
+  let percentageString = percentage.toString();
+  let correctH1 = document.getElementById("correct-percentage");
+  correctH1.innerText = percentageString + "%";
+};
+returnCorrectPercentage();
+
+const returnWrongPercentage = function () {
+  let percentage = (punteggioRecuperato / 10) * 100;
+  let wrongPercentage = 100 - percentage;
+  let percentageString = wrongPercentage.toString();
+  let wrongH1 = document.getElementById("wrong-percentage");
+  wrongH1.innerText = percentageString + "%";
+};
+returnWrongPercentage();
+
+let correctP = document.getElementById("correct-p");
+correctP.innerText = punteggioRecuperato + "/10 questions";
+// Da aggiungere tot domande
+
+let wrongP = document.getElementById("wrong-p");
+wrongP.innerText = 10 - punteggioRecuperato + "/10 questions";
+// Da aggiungere tot domande

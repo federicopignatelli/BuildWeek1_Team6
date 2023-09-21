@@ -100,12 +100,22 @@ let numeroDomanda = 0;
 
 let divQuiz;
 
+function onTimesUp() {
+  // Visualizza la domanda successiva e resetta il timer
+  numeroDomanda++;
+  document.querySelector("footer p").innerHTML = `Question ${numeroDomanda + 1}<span>/10</span>`;
+  mostraDomanda(numeroDomanda);
+
+  // Fai ripartire il timer
+  resetTimer();
+}
+
 const mostraDomanda = function (i) {
   if (i >= questions.length) {
     // localStorage.setItem("punteggio", punteggio);
     window.location.href = "result.html";
   }
-
+  resetTimer();
   if (divQuiz) {
     divQuiz.innerHTML = "";
   }
@@ -125,18 +135,22 @@ const mostraDomanda = function (i) {
     nuovoPulsante.innerText = risposte[y];
     nuovoPulsante.addEventListener("click", function () {
       if (risposte[y] === questions[i].correct_answer) {
+        alert("corretto")
         punteggio++;
+      }
+      else{
+        alert("sbagliato")
       }
 
       numeroDomanda++;
       document.querySelector("footer p").innerHTML = `Question ${
         numeroDomanda + 1
-      }<span>/10</span>`;
+      }<span>/10</span>`;  
       mostraDomanda(numeroDomanda);
     });
     divQuiz.appendChild(pDom1);
     pDom1.appendChild(divX);
-    divX.appendChild(nuovoPulsante);
+    divX.appendChild(nuovoPulsante); 
   }
   console.log(punteggio);
 };
