@@ -435,72 +435,73 @@ const mostraDomanda = function (i) {
     pDom1.innerText = questionsHard[i].question;
     let divX = document.createElement("div");
 
-  for (let y = 0; y < risposte.length; y++) {
-    let nuovoPulsante = document.createElement("button");
-    nuovoPulsante.classList.add("box-answer");
-    nuovoPulsante.innerText = risposte[y];
-    nuovoPulsante.addEventListener("click", function () {
-      if (risposte[y] === questions[i].correct_answer) {
-      let timerInterval
-      Swal.fire({
-      icon: "success",
-      title: 'Corret!!!',
-      timer: 1500,
-      timerProgressBar: true,
-      didOpen: () => {
-      Swal.showLoading()
-      const b = Swal.getHtmlContainer().querySelector('b')
-      timerInterval = setInterval(() => {
-      b.textContent = Swal.getTimerLeft()
-    }, 100)
-  },
-  willClose: () => {
-    clearInterval(timerInterval)
-  }
-}).then((result) => {
-  if (result.dismiss === Swal.DismissReason.timer) {
-    console.log('I was closed by the timer')
-  }
-})
-        punteggio++;
-      } else {
-        // alert("sbagliato");
-        Swal.fire({
-          icon: "error",
-          title: 'WRONG!!!!',
-          background: '#900080;',
-          timer: 1500,
-          timerProgressBar: true,
-          didOpen: () => {
-            Swal.showLoading()
-            const b = Swal.getHtmlContainer().querySelector('b')
-            timerInterval = setInterval(() => {
-              b.textContent = Swal.getTimerLeft()
-            }, 100)
-          },
-          willClose: () => {
-            clearInterval(timerInterval)
-          }
-        }).then((result) => {
-          if (result.dismiss === Swal.DismissReason.timer) {
-            console.log('I was closed by the timer')
-          }
-        })
-        
-      }
+    for (let y = 0; y < risposte.length; y++) {
+      let nuovoPulsante = document.createElement("button");
+      nuovoPulsante.classList.add("box-answer");
+      nuovoPulsante.innerText = risposte[y];
+      nuovoPulsante.addEventListener("click", function () {
+        if (risposte[y] === questions[i].correct_answer) {
+          let timerInterval;
+          Swal.fire({
+            icon: "success",
+            title: "Corret!!!",
+            timer: 1500,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const b = Swal.getHtmlContainer().querySelector("b");
+              timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft();
+              }, 100);
+            },
 
-      document.querySelector("footer p").innerHTML = `Question ${
-        numeroDomanda + 2
-      }<span>/10</span>`;
-      numeroDomanda++;
-      i++;
-      mostraDomanda(i);
-    });
-    divQuiz.appendChild(pDom1);
-    pDom1.appendChild(divX);
-    divX.appendChild(nuovoPulsante);
+            willClose: () => {
+              clearInterval(timerInterval);
+            },
+          }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+              console.log("I was closed by the timer");
+            }
+          });
+          punteggio++;
+        } else {
+          // alert("sbagliato");
+          Swal.fire({
+            icon: "error",
+            title: "WRONG!!!!",
+            background: "#900080;",
+            timer: 1500,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const b = Swal.getHtmlContainer().querySelector("b");
+              timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft();
+              }, 100);
+            },
+            willClose: () => {
+              clearInterval(timerInterval);
+            },
+          }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+              console.log("I was closed by the timer");
+            }
+          });
+        }
+
+        document.querySelector("footer p").innerHTML = `Question ${
+          numeroDomanda + 2
+        }<span>/10</span>`;
+        numeroDomanda++;
+        i++;
+        mostraDomanda(i);
+      });
+      divQuiz.appendChild(pDom1);
+      pDom1.appendChild(divX);
+      divX.appendChild(nuovoPulsante);
+    }
+    console.log(punteggio);
   }
-  console.log(punteggio);
 };
 
 window.onload = function () {
@@ -524,28 +525,28 @@ let timerInterval = null;
 let remainingPathColor = COLOR_CODES.info.color;
 
 document.getElementById("timer").innerHTML = `
-<div class="base-timer">
-  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <g class="base-timer__circle">
-      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
-      <path
-        id="base-timer-path-remaining"
-        stroke-dasharray="283"
-        class="base-timer__path-remaining ${remainingPathColor}"
-        d="
-          M 50, 50
-          m -45, 0
-          a 45,45 0 1,0 90,0
-          a 45,45 0 1,0 -90,0
-        "
-      ></path>
-    </g>
-  </svg>
-  <span id="base-timer-label" class="base-timer__label">${formatTime(
-  timeLeft
-)}</span>
-</div>
-`;
+  <div class="base-timer">
+    <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g class="base-timer__circle">
+        <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+        <path
+          id="base-timer-path-remaining"
+          stroke-dasharray="283"
+          class="base-timer__path-remaining ${remainingPathColor}"
+          d="
+            M 50, 50
+            m -45, 0
+            a 45,45 0 1,0 90,0
+            a 45,45 0 1,0 -90,0
+          "
+        ></path>
+      </g>
+    </svg>
+    <span id="base-timer-label" class="base-timer__label">${formatTime(
+      timeLeft
+    )}</span>
+  </div>
+  `;
 
 function startTimer() {
   document.querySelector("#timer").style.display = "block";
@@ -554,50 +555,19 @@ function startTimer() {
     timeLeft = TIME_LIMIT - timePassed;
     document.getElementById("base-timer-label").innerHTML =
       formatTime(timeLeft);
-    if (difficoltàSelezionata === "medium") {
-      if (timeLeft === 0) {
-        if (numeroDomanda >= 9) {
-          window.location.href = "result.html";
-        } else {
-          numeroDomanda++;
-          const questionNumberElement = document.querySelector("footer p");
-          questionNumberElement.innerHTML = `Question ${
-            numeroDomanda + 1
-          }<span>/10</span>`;
-          mostraDomanda(numeroDomanda);
-        }
+    if (timeLeft === 0) {
+      if (numeroDomanda >= 9) {
+        window.location.href = "result.html";
+      } else {
+        numeroDomanda++;
+        const questionNumberElement = document.querySelector("footer p");
+        questionNumberElement.innerHTML = `Question ${
+          numeroDomanda + 1
+        }<span>/10</span>`;
+        mostraDomanda(numeroDomanda);
       }
     }
-    if (difficoltàSelezionata === "easy") {
-      if (timeLeft === 0) {
-        if (numeroDomandaEasy >= 19) {
-          window.location.href = "result.html";
-        } else {
-          numeroDomandaEasy++;
-          numeroDomanda++;
-          const questionNumberElement = document.querySelector("footer p");
-          questionNumberElement.innerHTML = `Question ${
-            numeroDomanda + 1
-          }<span>/10</span>`;
-          mostraDomanda(numeroDomandaEasy);
-        }
-      }
-    }
-    if (difficoltàSelezionata === "hard") {
-      if (timeLeft === 0) {
-        if (numeroDomandaHard >= 29) {
-          window.location.href = "result.html";
-        } else {
-          numeroDomandaHard++;
-          numeroDomanda++;
-          const questionNumberElement = document.querySelector("footer p");
-          questionNumberElement.innerHTML = `Question ${
-            numeroDomanda + 1
-          }<span>/10</span>`;
-          mostraDomanda(numeroDomandaHard);
-        }
-      }
-    }
+
     setCircleDasharray();
   }, 1000);
 }
@@ -616,8 +586,8 @@ function formatTime(time) {
     seconds = `0${seconds}`;
   }
   return `<p style="font-size: 0.8em">SECONDS 
-  ${seconds} <br>
-  REMAINING`;
+    ${seconds} <br>
+    REMAINING`;
 }
 
 function calculateTimeFraction() {
