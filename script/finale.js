@@ -357,9 +357,8 @@ const mostraDomanda = function (i) {
           });
         }
 
-        document.querySelector("footer p").innerHTML = `Question ${
-          numeroDomanda + 2
-        }<span>/10</span>`;
+        document.querySelector("footer p").innerHTML = `Question ${numeroDomanda + 2
+          }<span>/10</span>`;
         numeroDomanda++;
         i++;
         mostraDomanda(i);
@@ -407,9 +406,8 @@ const mostraDomanda = function (i) {
           });
         }
 
-        document.querySelector("footer p").innerHTML = `Question ${
-          numeroDomanda + 2
-        }<span>/10</span>`;
+        document.querySelector("footer p").innerHTML = `Question ${numeroDomanda + 2
+          }<span>/10</span>`;
         numeroDomanda++;
         i++;
         mostraDomanda(i);
@@ -440,7 +438,7 @@ const mostraDomanda = function (i) {
       nuovoPulsante.classList.add("box-answer");
       nuovoPulsante.innerText = risposte[y];
       nuovoPulsante.addEventListener("click", function () {
-        if (risposte[y] === questions[i].correct_answer) {
+        if (risposte[y] === questionsHard[i].correct_answer) {
           Swal.fire({
             icon: "success",
             title: "Correct!",
@@ -457,9 +455,8 @@ const mostraDomanda = function (i) {
           });
         }
 
-        document.querySelector("footer p").innerHTML = `Question ${
-          numeroDomanda + 2
-        }<span>/10</span>`;
+        document.querySelector("footer p").innerHTML = `Question ${numeroDomanda + 2
+          }<span>/10</span>`;
         numeroDomanda++;
         i++;
         mostraDomanda(i);
@@ -511,8 +508,8 @@ document.getElementById("timer").innerHTML = `
       </g>
     </svg>
     <span id="base-timer-label" class="base-timer__label">${formatTime(
-      timeLeft
-    )}</span>
+  timeLeft
+)}</span>
   </div>
   `;
 
@@ -529,9 +526,8 @@ function startTimer() {
       } else {
         numeroDomanda++;
         const questionNumberElement = document.querySelector("footer p");
-        questionNumberElement.innerHTML = `Question ${
-          numeroDomanda + 1
-        }<span>/10</span>`;
+        questionNumberElement.innerHTML = `Question ${numeroDomanda + 1
+          }<span>/10</span>`;
         mostraDomanda(numeroDomanda);
       }
     }
