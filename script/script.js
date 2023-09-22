@@ -274,6 +274,10 @@ let punteggio = 0;
 
 let numeroDomanda = 0;
 
+let numeroDomandaEasy = 10;
+
+let numeroDomandaHard = 20;
+
 let divQuiz;
 
 let difficoltàSelezionata = null;
@@ -309,11 +313,24 @@ function randomSort(a, b) {
 }
 
 const mostraDomanda = function (i) {
-  if (i >= questions.length) {
-    localStorage.setItem("punteggio", punteggio);
-    window.location.href = "result.html";
+  if (difficoltàSelezionata === "easy") {
+    if (i >= 20) {
+      localStorage.setItem("punteggio", punteggio);
+      window.location.href = "result.html";
+    }
   }
-
+  if (difficoltàSelezionata === "medium") {
+    if (i >= 10) {
+      localStorage.setItem("punteggio", punteggio);
+      window.location.href = "result.html";
+    }
+  }
+  if (difficoltàSelezionata === "hard") {
+    if (i >= 30) {
+      localStorage.setItem("punteggio", punteggio);
+      window.location.href = "result.html";
+    }
+  }
   resetTimer();
 
   if (divQuiz) {
@@ -394,7 +411,8 @@ const mostraDomanda = function (i) {
         numeroDomanda + 2
       }<span>/10</span>`;
       numeroDomanda++;
-      mostraDomanda(i + 1);
+      i++;
+      mostraDomanda(i);
     });
     divQuiz.appendChild(pDom1);
     pDom1.appendChild(divX);
@@ -405,7 +423,6 @@ const mostraDomanda = function (i) {
 
 window.onload = function () {
   divQuiz = document.querySelector(".domande");
-  // mostraDomanda(numeroDomanda);
 };
 
 const FULL_DASH_ARRAY = 283;
@@ -455,16 +472,48 @@ function startTimer() {
     timeLeft = TIME_LIMIT - timePassed;
     document.getElementById("base-timer-label").innerHTML =
       formatTime(timeLeft);
-    if (timeLeft === 0) {
-      if (numeroDomanda >= 9) {
-        window.location.href = "result.html";
-      } else {
-        numeroDomanda++;
-        const questionNumberElement = document.querySelector("footer p");
-        questionNumberElement.innerHTML = `Question ${
-          numeroDomanda + 1
-        }<span>/10</span>`;
-        mostraDomanda(numeroDomanda);
+    if (difficoltàSelezionata === "medium") {
+      if (timeLeft === 0) {
+        if (numeroDomanda >= 9) {
+          window.location.href = "result.html";
+        } else {
+          numeroDomanda++;
+          const questionNumberElement = document.querySelector("footer p");
+          questionNumberElement.innerHTML = `Question ${
+            numeroDomanda + 1
+          }<span>/10</span>`;
+          mostraDomanda(numeroDomanda);
+        }
+      }
+    }
+    if (difficoltàSelezionata === "easy") {
+      if (timeLeft === 0) {
+        if (numeroDomandaEasy >= 19) {
+          window.location.href = "result.html";
+        } else {
+          numeroDomandaEasy++;
+          numeroDomanda++;
+          const questionNumberElement = document.querySelector("footer p");
+          questionNumberElement.innerHTML = `Question ${
+            numeroDomanda + 1
+          }<span>/10</span>`;
+          mostraDomanda(numeroDomandaEasy);
+        }
+      }
+    }
+    if (difficoltàSelezionata === "hard") {
+      if (timeLeft === 0) {
+        if (numeroDomandaHard >= 29) {
+          window.location.href = "result.html";
+        } else {
+          numeroDomandaHard++;
+          numeroDomanda++;
+          const questionNumberElement = document.querySelector("footer p");
+          questionNumberElement.innerHTML = `Question ${
+            numeroDomanda + 1
+          }<span>/10</span>`;
+          mostraDomanda(numeroDomandaHard);
+        }
       }
     }
     setCircleDasharray();
