@@ -342,27 +342,27 @@ const mostraDomanda = function (i) {
     nuovoPulsante.innerText = risposte[y];
     nuovoPulsante.addEventListener("click", function () {
       if (risposte[y] === questions[i].correct_answer) {
-      let timerInterval
-      Swal.fire({
-      icon: "success",
-      title: 'Corret!!!',
-      timer: 1500,
-      timerProgressBar: true,
-      didOpen: () => {
-      Swal.showLoading()
-      const b = Swal.getHtmlContainer().querySelector('b')
-      timerInterval = setInterval(() => {
-      b.textContent = Swal.getTimerLeft()
-    }, 100)
-  },
-  willClose: () => {
-    clearInterval(timerInterval)
-  }
-}).then((result) => {
-  if (result.dismiss === Swal.DismissReason.timer) {
-    console.log('I was closed by the timer')
-  }
-})
+        let timerInterval
+        Swal.fire({
+          icon: "success",
+          title: 'Corret!!!',
+          timer: 1500,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+            timerInterval = setInterval(() => {
+              b.textContent = Swal.getTimerLeft()
+            }, 100)
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log('I was closed by the timer')
+          }
+        })
         punteggio++;
       } else {
         // alert("sbagliato");
@@ -387,12 +387,11 @@ const mostraDomanda = function (i) {
             console.log('I was closed by the timer')
           }
         })
-        
+
       }
 
-      document.querySelector("footer p").innerHTML = `Question ${
-        numeroDomanda + 2
-      }<span>/10</span>`;
+      document.querySelector("footer p").innerHTML = `Question ${numeroDomanda + 2
+        }<span>/10</span>`;
       numeroDomanda++;
       mostraDomanda(i + 1);
     });
@@ -443,8 +442,8 @@ document.getElementById("timer").innerHTML = `
     </g>
   </svg>
   <span id="base-timer-label" class="base-timer__label">${formatTime(
-    timeLeft
-  )}</span>
+  timeLeft
+)}</span>
 </div>
 `;
 
@@ -461,10 +460,9 @@ function startTimer() {
       } else {
         numeroDomanda++;
         const questionNumberElement = document.querySelector("footer p");
-        questionNumberElement.innerHTML = `Question ${
-          numeroDomanda + 1
-        }<span>/10</span>`;
-        mostraDomanda(numeroDomanda);
+        questionNumberElement.innerHTML = `Question ${numeroDomanda + 1
+          }<span>/10</span>`;
+        mostraDomanda(numeroDomanda + 1);
       }
     }
     setCircleDasharray();
