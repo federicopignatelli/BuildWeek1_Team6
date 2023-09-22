@@ -12,14 +12,15 @@ footer p {
 
 .box-answer {
   display: inline-block;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.3);
   margin: 25px 20px;
   width: calc(80% / 2 - 120px);
   border-radius: 120px;
-  border: solid 1px;
-  box-shadow: -0px -5px 5px 5px;
+  border: solid 0px;
+  box-shadow: 0 0 0px 4px #ffffff;
   padding: 1em;
 }
+
 .box-answer:hover {
   background-color: #d20094;
 }
@@ -38,6 +39,7 @@ footer {
   color: white;
   text-align: center;
 }
+
 span {
   color: #d20094;
 }
@@ -81,6 +83,7 @@ p div {
   float: right;
   margin-right: 10vw;
 }
+
 .base-timer {
   position: relative;
   width: 200px;
@@ -88,7 +91,8 @@ p div {
 }
 
 .base-timer__svg {
-  transform: scaleX(-1);
+  margin-top: 1.5em;
+  padding: 1.5em;
 }
 
 .base-timer__circle {
@@ -98,7 +102,7 @@ p div {
 
 .base-timer__path-elapsed {
   stroke-width: 10px;
-  stroke: grey;
+  stroke: rgba(128, 128, 128, 0.433);
 }
 
 .base-timer__path-remaining {
@@ -114,6 +118,7 @@ p div {
 .base-timer__path-remaining.green {
   color: #00ffff;
 }
+
 .base-timer__label {
   position: absolute;
   width: 200px;
@@ -122,7 +127,17 @@ p div {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
+  font-size: 20px;
   color: white;
   font-family: "Outfit", sans-serif;
+  margin-top: 1em;
+}
+
+#second {
+  color: #fff;
+  text-align: center;
+}
+
+#question-number {
+  text-transform: uppercase;
 }

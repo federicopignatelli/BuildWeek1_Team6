@@ -526,7 +526,7 @@ function startTimer() {
       } else {
         numeroDomanda++;
         const questionNumberElement = document.querySelector("footer p");
-        questionNumberElement.innerHTML = `Question ${numeroDomanda + 1
+        questionNumberElement.innerHTML = `QUESTION ${numeroDomanda + 1
           }<span>/10</span>`;
         mostraDomanda(numeroDomanda);
       }
@@ -549,9 +549,14 @@ function formatTime(time) {
   if (seconds < 10) {
     seconds = `0${seconds}`;
   }
-  return `<p style="font-size: 0.8em">SECONDS 
-    ${seconds} <br>
-    REMAINING`;
+  // return `<p style="font-size: 0.8em">SECONDS 
+  // ${seconds} <br>
+  // REMAINING`;
+  return `<p style="font-size: 0.5em; text-align: center;">SECONDS <br>
+   <span id="second" style="font-size: 6em;">${seconds}</span> <br>
+    REMAINING </p>`;
+
+
 }
 
 function calculateTimeFraction() {
