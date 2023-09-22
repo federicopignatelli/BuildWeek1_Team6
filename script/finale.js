@@ -343,7 +343,7 @@ const mostraDomanda = function (i) {
         if (risposte[y] === questionsEasy[i].correct_answer) {
           Swal.fire({
             icon: "success",
-            title: "Your work has been saved",
+            title: "Correct",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -351,7 +351,7 @@ const mostraDomanda = function (i) {
         } else {
           Swal.fire({
             icon: "error",
-            title: "wrong!",
+            title: "Wrong!",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -393,7 +393,7 @@ const mostraDomanda = function (i) {
         if (risposte[y] === questionsMedium[i].correct_answer) {
           Swal.fire({
             icon: "success",
-            title: "Your work has been saved",
+            title: "Correct",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -401,7 +401,7 @@ const mostraDomanda = function (i) {
         } else {
           Swal.fire({
             icon: "error",
-            title: "wrong!",
+            title: "Wrong!",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -441,51 +441,19 @@ const mostraDomanda = function (i) {
       nuovoPulsante.innerText = risposte[y];
       nuovoPulsante.addEventListener("click", function () {
         if (risposte[y] === questions[i].correct_answer) {
-          let timerInterval;
           Swal.fire({
             icon: "success",
-            title: "Corret!!!",
+            title: "Correct!",
+            showConfirmButton: false,
             timer: 1500,
-            timerProgressBar: true,
-            didOpen: () => {
-              Swal.showLoading();
-              const b = Swal.getHtmlContainer().querySelector("b");
-              timerInterval = setInterval(() => {
-                b.textContent = Swal.getTimerLeft();
-              }, 100);
-            },
-
-            willClose: () => {
-              clearInterval(timerInterval);
-            },
-          }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.timer) {
-              console.log("I was closed by the timer");
-            }
           });
           punteggio++;
         } else {
-          // alert("sbagliato");
           Swal.fire({
             icon: "error",
-            title: "WRONG!!!!",
-            background: "#900080;",
+            title: "Wrong!",
+            showConfirmButton: false,
             timer: 1500,
-            timerProgressBar: true,
-            didOpen: () => {
-              Swal.showLoading();
-              const b = Swal.getHtmlContainer().querySelector("b");
-              timerInterval = setInterval(() => {
-                b.textContent = Swal.getTimerLeft();
-              }, 100);
-            },
-            willClose: () => {
-              clearInterval(timerInterval);
-            },
-          }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.timer) {
-              console.log("I was closed by the timer");
-            }
           });
         }
 
