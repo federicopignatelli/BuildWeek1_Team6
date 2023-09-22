@@ -359,57 +359,28 @@ const mostraDomanda = function (i) {
     nuovoPulsante.innerText = risposte[y];
     nuovoPulsante.addEventListener("click", function () {
       if (risposte[y] === questions[i].correct_answer) {
-      let timerInterval
-      Swal.fire({
-      icon: "success",
-      title: 'Corret!!!',
-      timer: 1500,
-      timerProgressBar: true,
-      didOpen: () => {
-      Swal.showLoading()
-      const b = Swal.getHtmlContainer().querySelector('b')
-      timerInterval = setInterval(() => {
-      b.textContent = Swal.getTimerLeft()
-    }, 100)
-  },
-  willClose: () => {
-    clearInterval(timerInterval)
-  }
-}).then((result) => {
-  if (result.dismiss === Swal.DismissReason.timer) {
-    console.log('I was closed by the timer')
-  }
-})
-        punteggio++;
-      } else {
-        // alert("sbagliato");
         Swal.fire({
-          icon: "error",
-          title: 'WRONG!!!!',
-          background: '#900080;',
-          timer: 1500,
-          timerProgressBar: true,
-          didOpen: () => {
-            Swal.showLoading()
-            const b = Swal.getHtmlContainer().querySelector('b')
-            timerInterval = setInterval(() => {
-              b.textContent = Swal.getTimerLeft()
-            }, 100)
-          },
-          willClose: () => {
-            clearInterval(timerInterval)
-          }
-        }).then((result) => {
-          if (result.dismiss === Swal.DismissReason.timer) {
-            console.log('I was closed by the timer')
-          }
+          icon: 'success',
+          title: 'Correct!',
+          showConfirmButton: false,
+          timer: 1500
         })
-        
+        punteggio++;
       }
 
-      document.querySelector("footer p").innerHTML = `Question ${
-        numeroDomanda + 2
-      }<span>/10</span>`;
+      else {
+        // alert("sbagliato");
+        Swal.fire({
+          icon: 'error',
+          title: 'Wrong!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+
+      }
+
+      document.querySelector("footer p").innerHTML = `Question ${numeroDomanda + 2
+        }<span>/10</span>`;
       numeroDomanda++;
       i++;
       mostraDomanda(i);
@@ -460,8 +431,8 @@ document.getElementById("timer").innerHTML = `
     </g>
   </svg>
   <span id="base-timer-label" class="base-timer__label">${formatTime(
-    timeLeft
-  )}</span>
+  timeLeft
+)}</span>
 </div>
 `;
 
@@ -479,9 +450,8 @@ function startTimer() {
         } else {
           numeroDomanda++;
           const questionNumberElement = document.querySelector("footer p");
-          questionNumberElement.innerHTML = `Question ${
-            numeroDomanda + 1
-          }<span>/10</span>`;
+          questionNumberElement.innerHTML = `Question ${numeroDomanda + 1
+            }<span>/10</span>`;
           mostraDomanda(numeroDomanda);
         }
       }
@@ -494,9 +464,8 @@ function startTimer() {
           numeroDomandaEasy++;
           numeroDomanda++;
           const questionNumberElement = document.querySelector("footer p");
-          questionNumberElement.innerHTML = `Question ${
-            numeroDomanda + 1
-          }<span>/10</span>`;
+          questionNumberElement.innerHTML = `Question ${numeroDomanda + 1
+            }<span>/10</span>`;
           mostraDomanda(numeroDomandaEasy);
         }
       }
@@ -509,9 +478,8 @@ function startTimer() {
           numeroDomandaHard++;
           numeroDomanda++;
           const questionNumberElement = document.querySelector("footer p");
-          questionNumberElement.innerHTML = `Question ${
-            numeroDomanda + 1
-          }<span>/10</span>`;
+          questionNumberElement.innerHTML = `Question ${numeroDomanda + 1
+            }<span>/10</span>`;
           mostraDomanda(numeroDomandaHard);
         }
       }
