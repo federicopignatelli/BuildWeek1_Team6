@@ -435,41 +435,71 @@ const mostraDomanda = function (i) {
     pDom1.innerText = questionsHard[i].question;
     let divX = document.createElement("div");
 
-    for (let y = 0; y < risposte.length; y++) {
-      let nuovoPulsante = document.createElement("button");
-      nuovoPulsante.classList.add("box-answer");
-      nuovoPulsante.innerText = risposte[y];
-      nuovoPulsante.addEventListener("click", function () {
-        if (risposte[y] === questionsHard[i].correct_answer) {
-          Swal.fire({
-            icon: "success",
-            title: "Your work has been saved",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          punteggio++;
-        } else {
-          Swal.fire({
-            icon: "error",
-            title: "wrong!",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-
-        document.querySelector("footer p").innerHTML = `Question ${
-          numeroDomanda + 2
-        }<span>/10</span>`;
-        numeroDomanda++;
-        i++;
-        mostraDomanda(i);
-      });
-      divQuiz.appendChild(pDom1);
-      pDom1.appendChild(divX);
-      divX.appendChild(nuovoPulsante);
-    }
+  for (let y = 0; y < risposte.length; y++) {
+    let nuovoPulsante = document.createElement("button");
+    nuovoPulsante.classList.add("box-answer");
+    nuovoPulsante.innerText = risposte[y];
+    nuovoPulsante.addEventListener("click", function () {
+      if (risposte[y] === questions[i].correct_answer) {
+      let timerInterval
+      Swal.fire({
+      icon: "success",
+      title: 'Corret!!!',
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: () => {
+      Swal.showLoading()
+      const b = Swal.getHtmlContainer().querySelector('b')
+      timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
   }
+}).then((result) => {
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})
+        punteggio++;
+      } else {
+        // alert("sbagliato");
+        Swal.fire({
+          icon: "error",
+          title: 'WRONG!!!!',
+          background: '#900080;',
+          timer: 1500,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+            timerInterval = setInterval(() => {
+              b.textContent = Swal.getTimerLeft()
+            }, 100)
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log('I was closed by the timer')
+          }
+        })
+        
+      }
 
+      document.querySelector("footer p").innerHTML = `Question ${
+        numeroDomanda + 2
+      }<span>/10</span>`;
+      numeroDomanda++;
+      i++;
+      mostraDomanda(i);
+    });
+    divQuiz.appendChild(pDom1);
+    pDom1.appendChild(divX);
+    divX.appendChild(nuovoPulsante);
+  }
   console.log(punteggio);
 };
 
@@ -512,8 +542,8 @@ document.getElementById("timer").innerHTML = `
     </g>
   </svg>
   <span id="base-timer-label" class="base-timer__label">${formatTime(
-    timeLeft
-  )}</span>
+  timeLeft
+)}</span>
 </div>
 `;
 
@@ -524,16 +554,48 @@ function startTimer() {
     timeLeft = TIME_LIMIT - timePassed;
     document.getElementById("base-timer-label").innerHTML =
       formatTime(timeLeft);
-    if (timeLeft === 0) {
-      if (numeroDomanda >= 9) {
-        window.location.href = "result.html";
-      } else {
-        numeroDomanda++;
-        const questionNumberElement = document.querySelector("footer p");
-        questionNumberElement.innerHTML = `Question ${
-          numeroDomanda + 1
-        }<span>/10</span>`;
-        mostraDomanda(numeroDomanda);
+    if (difficoltàSelezionata === "medium") {
+      if (timeLeft === 0) {
+        if (numeroDomanda >= 9) {
+          window.location.href = "result.html";
+        } else {
+          numeroDomanda++;
+          const questionNumberElement = document.querySelector("footer p");
+          questionNumberElement.innerHTML = `Question ${
+            numeroDomanda + 1
+          }<span>/10</span>`;
+          mostraDomanda(numeroDomanda);
+        }
+      }
+    }
+    if (difficoltàSelezionata === "easy") {
+      if (timeLeft === 0) {
+        if (numeroDomandaEasy >= 19) {
+          window.location.href = "result.html";
+        } else {
+          numeroDomandaEasy++;
+          numeroDomanda++;
+          const questionNumberElement = document.querySelector("footer p");
+          questionNumberElement.innerHTML = `Question ${
+            numeroDomanda + 1
+          }<span>/10</span>`;
+          mostraDomanda(numeroDomandaEasy);
+        }
+      }
+    }
+    if (difficoltàSelezionata === "hard") {
+      if (timeLeft === 0) {
+        if (numeroDomandaHard >= 29) {
+          window.location.href = "result.html";
+        } else {
+          numeroDomandaHard++;
+          numeroDomanda++;
+          const questionNumberElement = document.querySelector("footer p");
+          questionNumberElement.innerHTML = `Question ${
+            numeroDomanda + 1
+          }<span>/10</span>`;
+          mostraDomanda(numeroDomandaHard);
+        }
       }
     }
     setCircleDasharray();
